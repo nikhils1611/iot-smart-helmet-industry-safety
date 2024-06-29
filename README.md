@@ -35,11 +35,11 @@ IOT-enabled worker safety helmet equipped with a web-based monitoring and alert 
 <br>
 
 # Real-Time Implemented Images: [click here to view](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/tree/main/Project-images)
-<<<<<<< HEAD
+
 # Project Report: [click here to download](https://github.com/user-attachments/files/15880862/Report.Content.pdf)
-=======
+
 # Project Report: [click here to download](https://github.com/user-attachments/files/16040168/IOT_Report_mergerd.pdf)
->>>>>>> 33234e27afd78b3d67321fa0c83f14e9ae84bd61
+
 
 <br>
 
