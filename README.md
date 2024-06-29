@@ -48,7 +48,7 @@ IOT-enabled worker safety helmet equipped with a web-based monitoring and alert 
 
 1) ### Arduino Nano
 
-![Picture1](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/assets/149647718/f128dd34-d67d-468f-96a7-902929efad16)
+![Picture2](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/assets/149647718/9a9d0139-ea08-4b8a-a6bd-38b553a02c73)
 
 <br>
 The Arduino Nano emerges as a pivotal microcontroller board renowned for its compact design and formidable performance, catering to a broad spectrum of embedded applications and IoT projects. Anchored by the ATmega328 microcontroller, it embodies the quintessential Arduino ethos, delivering a harmonious blend of functionality and accessibility. With a clock speed of 16 MHz and ample memory resources boasting 32KB of flash memory and 2KB of SRAM, the Nano stands primed for executing tasks with finesse.
