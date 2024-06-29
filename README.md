@@ -35,11 +35,11 @@ IOT-enabled worker safety helmet equipped with a web-based monitoring and alert 
 <br>
 
 # Real-Time Implemented Images: [click here to view](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/tree/main/Project-images)
-<<<<<<< HEAD
+
 # Project Report: [click here to download](https://github.com/user-attachments/files/15880862/Report.Content.pdf)
-=======
-# Project Report: [click here to download](https://github.com/user-attachments/files/16040168/IOT_Report_mergerd.pdf)
->>>>>>> 33234e27afd78b3d67321fa0c83f14e9ae84bd61
+
+
+
 
 <br>
 
@@ -48,7 +48,7 @@ IOT-enabled worker safety helmet equipped with a web-based monitoring and alert 
 
 1) ### Arduino Nano
 
-![image](https://user-images.githubusercontent.com/85627085/235177501-32c84273-4d46-4518-960e-3edf8aee552b.png)
+![Picture3](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/assets/149647718/f93d031d-296a-4b9b-beae-c53f51ba0f20)
 
 <br>
 The Arduino Nano emerges as a pivotal microcontroller board renowned for its compact design and formidable performance, catering to a broad spectrum of embedded applications and IoT projects. Anchored by the ATmega328 microcontroller, it embodies the quintessential Arduino ethos, delivering a harmonious blend of functionality and accessibility. With a clock speed of 16 MHz and ample memory resources boasting 32KB of flash memory and 2KB of SRAM, the Nano stands primed for executing tasks with finesse.
@@ -57,7 +57,7 @@ The Arduino Nano emerges as a pivotal microcontroller board renowned for its com
 
 2) ### DHT11 Sensor
 
-![image](https://user-images.githubusercontent.com/85627085/235177985-42b9792e-5ec4-468d-8ad0-ee05d52e814b.png)
+![Picture4](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/assets/149647718/a0b9f219-2ec7-4865-b81a-83f792a797bb)
 
 <br>
 
@@ -99,7 +99,8 @@ It was created to describe the protocols for second-generation (2G) digital cell
 5) ###  MQ2 Gas Sensor
 <br>
 
-![image](https://user-images.githubusercontent.com/85627085/235182600-a0037ef0-0a29-450b-9c12-2e72f58e3903.png)
+
+![Picture5](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/assets/149647718/f2b0847c-8af6-497d-8c08-a8cbce28be77)
 
 <br>
 
@@ -147,9 +148,8 @@ The Liquid Crystal library allows you to control LCDs that are compatible with t
 
 9) ### Max30100 heart rate sensor
  <br>
- 
- ![image](https://user-images.githubusercontent.com/85627085/235443559-a2a7fdfc-966e-4357-b004-9edb3c93a655.png)
 
+![Picture6](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/assets/149647718/bf998f63-b95d-45ee-b167-4a9be172a05d)
 
 <br>
 The MAX30100 heart rate sensor stands at the forefront of wearable health technology, offering a sophisticated yet accessible solution for monitoring vital signs and cardiovascular health. Engineered with precision and reliability in mind, the MAX30100 sensor caters to a diverse range of applications, from fitness trackers and smartwatches to medical-grade monitoring devices.
@@ -172,8 +172,8 @@ At its core, the MAX30100 sensor integrates advanced photoplethysmography (PPG) 
 
   - <b><u>System Architecture </u></b><br>
   
-  ![image](https://user-images.githubusercontent.com/85627085/235192027-edc61f5f-6932-4436-9cac-e4d0db5209d3.png)
-  
+  ![Screenshot 2024-06-29 193233](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/assets/149647718/e5cb2073-d7b0-46c1-95a4-b9dac2cb4484)
+
   <br>
   
   On the completion of previous existing models, newly upgraded prototypes have been designed to overcome the existing limitations.<br><br>
