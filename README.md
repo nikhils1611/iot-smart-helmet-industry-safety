@@ -38,7 +38,7 @@ IOT-enabled worker safety helmet equipped with a web-based monitoring and alert 
 
 # Project Report: [click here to download](https://github.com/user-attachments/files/15880862/Report.Content.pdf)
 
-# Project Report: [click here to download](https://github.com/user-attachments/files/16040168/IOT_Report_mergerd.pdf)
+
 
 
 <br>
