@@ -35,7 +35,7 @@ IOT-enabled worker safety helmet equipped with a web-based monitoring and alert 
 <br>
 
 # Real-Time Implemented Images: [click here to view](https://github.com/hegdepavankumar/smart-garbage-monitoring-system-using-iot/tree/main/sample-project-images)
-# Project Report: [click here to download][ilovepdf_merged (1).pdf](https://github.com/user-attachments/files/16040163/ilovepdf_merged.1.pdf)
+# Project Report: [click here to download](https://github.com/user-attachments/files/16040163/ilovepdf_merged.1.pdf)
 
 <br>
 
