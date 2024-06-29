@@ -34,7 +34,7 @@ IOT-enabled worker safety helmet equipped with a web-based monitoring and alert 
 
 <br>
 
-# Real-Time Implemented Images: [click here to view](https://github.com/hegdepavankumar/smart-garbage-monitoring-system-using-iot/tree/main/sample-project-images)
+# Real-Time Implemented Images: [click here to view](https://github.com/nikhils1611/iot-smart-helmet-industry-safety/tree/main/Project-images)
 # Project Report: [click here to download](https://github.com/user-attachments/files/15880862/Report.Content.pdf)
 
 <br>
@@ -42,23 +42,22 @@ IOT-enabled worker safety helmet equipped with a web-based monitoring and alert 
 
 ## Hardware Requirements
 
-1) ### Ulteasonic Sensor
+1) ### Arduino Nano
 
 ![image](https://user-images.githubusercontent.com/85627085/235177501-32c84273-4d46-4518-960e-3edf8aee552b.png)
 
 <br>
-An ultrasonic sensor is an electronic device that measures the distance of a target object by emitting ultrasonic sound waves and converts the reflected sound into an electrical signal. Ultrasonic waves travel faster than the speed of audible sound (i.e. the sound that humans can hear). Ultrasonic sensors have two main components: the transmitter (which emits the sound using piezoelectric crystals) and the receiver (which encounters the sound after it has traveled to and from the target).
+The Arduino Nano emerges as a pivotal microcontroller board renowned for its compact design and formidable performance, catering to a broad spectrum of embedded applications and IoT projects. Anchored by the ATmega328 microcontroller, it embodies the quintessential Arduino ethos, delivering a harmonious blend of functionality and accessibility. With a clock speed of 16 MHz and ample memory resources boasting 32KB of flash memory and 2KB of SRAM, the Nano stands primed for executing tasks with finesse.
 
-To calculate the distance between the sensor and the object, the sensor measures the time it takes between the emission of the sound by the transmitter to its contact with the receiver. The formula for this calculation is D = ½ T x C (where D is the distance, T is the time, and C is the speed of sound ~ 343 meters/second).
 <br>
 
-2) ### Arduino UNO R3
+2) ### DHT11 Sensor
 
 ![image](https://user-images.githubusercontent.com/85627085/235177985-42b9792e-5ec4-468d-8ad0-ee05d52e814b.png)
 
 <br>
 
-Arduino UNO is a microcontroller board based on the ATmega328P. It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz ceramic resonator, a USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with an AC-to-DC adapter or battery to get started.
+The DHT11 sensor stands as a cornerstone in the realm of temperature and humidity sensing, offering a cost-effective yet reliable solution for a myriad of projects spanning from environmental monitoring to home automation. Its compact form factor belies its robust capabilities, making it a favored choice among hobbyists and professionals alike. Featuring a calibrated digital signal output, the DHT11 sensor simplifies integration into projects by obviating the need for complex analog signal processing.
 
 <br>
 
@@ -93,14 +92,14 @@ It was created to describe the protocols for second-generation (2G) digital cell
 
 
 
-5) ### Buzzer 
+5) ###  MQ2 Gas Sensor
 <br>
 
 ![image](https://user-images.githubusercontent.com/85627085/235182600-a0037ef0-0a29-450b-9c12-2e72f58e3903.png)
 
 <br>
 
-A buzzer or beeper is an audio signaling device, which may be mechanical, electromechanical, or piezoelectric (piezo for short). Typical uses of buzzers and beepers include alarm devices, timers, training and confirmation of user input such as a mouse click or keystroke.
+The MQ2 gas sensor emerges as a pivotal component in the domain of gas detection and monitoring, offering a versatile solution for a wide array of applications ranging from air quality assessment to industrial safety protocols. Characterized by its compact size and robust construction, the MQ2 sensor epitomizes reliability and performance, making it a staple choice among hobbyists, researchers, and industrial practitioners alike.
 
 <br>
 
@@ -141,169 +140,283 @@ The Liquid Crystal library allows you to control LCDs that are compatible with t
 
 <br>
 
+
+9) ### Max30100 heart rate sensor
+ <br>
+ 
+ ![image](https://user-images.githubusercontent.com/85627085/235443559-a2a7fdfc-966e-4357-b004-9edb3c93a655.png)
+
+
+<br>
+The MAX30100 heart rate sensor stands at the forefront of wearable health technology, offering a sophisticated yet accessible solution for monitoring vital signs and cardiovascular health. Engineered with precision and reliability in mind, the MAX30100 sensor caters to a diverse range of applications, from fitness trackers and smartwatches to medical-grade monitoring devices.
+At its core, the MAX30100 sensor integrates advanced photoplethysmography (PPG) technology, leveraging an optical sensor to measure changes in blood volume through the skin. This enables the sensor to accurately detect heart rate and blood oxygen saturation (SpO2) levels in real time, providing valuable insights into cardiovascular health and overall well- being.
+
+<br>
+
+
+
+
 ## Software Requirements
 
   - Windows 7/10/11 OS with Min 4GB RAM and 250GB Hard Disk <br>
   - [Arduino IDE](https://www.arduino.cc/en/software) <br>
-  - Local Server and web Page for Monitoring
+  - Local Server and web Page for Monitoring<br>
+  - Visual Studio Code <br>
 <br>
 
 ## Implementation & Testing
 
-  - Sketch (Fritzing) <br>
+  - <b><u>System Architecture </u></b><br>
   
   ![image](https://user-images.githubusercontent.com/85627085/235192027-edc61f5f-6932-4436-9cac-e4d0db5209d3.png)
   
   <br>
   
-  The above diagram shows a sketch of connection devices or sensors using Fritzing software. This figure shows an ultrasonic sensor connected with Node MCU and to the Cytron Uno or Arduino Uno. An ultrasonic sensor will read the distance of the garbage and compare it with the bin depth. This sketch is one of the important parts of the Garbage Monitoring System using IoT.
-  
+  On the completion of previous existing models, newly upgraded prototypes have been designed to overcome the existing limitations.<br><br>
+1.<b><u>Sensing and Data Collection Unit</u></b> :
+   -Nano 1 is equipped with a DHT11 sensor for temperature and humidity monitoring, an MQ2 gas sensor for detecting CO gas, and an ESP8266 Wi-Fi module for communication.
+  -Additionally, Nano 1 features an LCD for local display of sensor readings.
+  -Data collected from sensors (temperature, humidity, CO gas) is stored locally on Nano 1.
+  -Nano 1 communicates with Nano 2 to receive heartbeat data.
+  -Nano 2 is dedicated to monitoring heartbeat using an SpO2 heartbeat sensor.
+  -It collects heartbeat data and transmits it to Nano 1 for further processing.<br>
+  <br>
+  <b><u>2.Data Processing and Communication Unit:</u></b>
+  -Nano 1 receives data from both Nano 2 (heartbeat) and its own sensors (temperature, humidity, CO gas).
+  -It aggregates all data and sends it to the ThingSpeak IoT cloud platform via the ESP8266 Wi-Fi module for real-time monitoring.
+  -Additionally, Nano 1 communicates with Nano 3 to trigger emergency communication in case of an SOS event.
+  -Nano 3 is independent and separate from Nano 1 and Nano 2.-	It features an A9G GSM module for emergency communication, a GPS module for location tracking, and an emergency SOS switch.<br>
+  <br>
+  <b><u>3.Monitoring Interface and Alerting Unit:</u></b>
+  -Data collected by Nano 1 is sent to the ThingSpeak IoT cloud platform for storage and monitoring.
+  -Caretakers can access a Flask-based web application to monitor the sensor readings remotely and in real-time.
+  -When the SOS button is pressed, Nano 3 sends the GPS location to a smartphone via SMS using the A9G GSM module.
+  -A LM2596 regulated power supply is connected to Nano 1 and Nano 3 to ensure stable power delivery.<br>
   
   <br>
   
   ## Source Code
   
- 1) ### Code for NodeMCU
+ 1) ### Code for sensor unit and wifi module
  
  <br>
  
  ```
-  #include <ESP8266WiFi.h>
-const char* ssid = "Pavankumar"; //ssid of your wifi  // Mavayya-5G
-const char* password = "12345678"; //password of your wifi
-WiFiServer server(80);
-////////////////////////////////////
-#include <Arduino_JSON.h>
-String inputData = "";
-boolean data_complete = false;
-String vala;
-String valb;
-String valc;
-String vald;
-/////////////////////////////////////
+#include<LiquidCrystal.h>
+#include <SoftwareSerial.h>
+#include "DHT.h"
+#define DHTPIN A1     // Digital pin connected to the DHT sensor
+#define DHTTYPE DHT11   // DHT 11
+DHT dht(DHTPIN, DHTTYPE);
+
+SoftwareSerial esp8266(10, 11); // RX, TX of controller
+
+#define DEBUG true
+#define IP "184.106.153.149"// thingspeak.com ip
+String Api_key = "GET /update?key=BRHXM8FXX082Q3DG"; //change it with your api key like "GET /update?key=Your Api Key"
+int error;
+
+#define DEBUG true
+
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
+
+const int mqPin = A0;
+int mqState = 0;
+
+String h;
+
+int hum;
+int temp;
+int f;
 
 void setup()
-
 {
+  dht.begin();
   Serial.begin(115200);
-  inputData.reserve(200);
-  Serial.println("Hello");
-  Serial.println();
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
-  WiFi.begin(ssid, password); //connecting to wifi
-  while (WiFi.status() != WL_CONNECTED)// while wifi not connected
-  {
-    delay(500);
-    Serial.print("."); //print "...."
-  }
-  Serial.println("");
-  Serial.println("WiFi connected");
-  server.begin();
-  Serial.println("Server started");
-  Serial.println(WiFi.localIP());  // Print the IP address
+  esp8266.begin(115200);
+  pinMode(mqPin, INPUT);
+  lcd.begin(16, 2);
+  lcd.clear();
+  lcd.print("  Smart Helmet");
+  delay(1000);
+  //=====================================
+  send_command("AT+RST\r\n", 2000, DEBUG); //reset module
+  send_command("AT+CWMODE=1\r\n", 1000, DEBUG); //set station mode
+  send_command("AT+CWJAP=\"ABC\",\"11111111\"\r\n", 2000, DEBUG);
+  //====================================
+  delay(2000);
 }
+
+//void(* resetFunc) (void) = 0;//declare reset function at address 0
+
 void loop()
 {
-  while(Serial.available() > 0)
+  hum = dht.readHumidity();
+  temp = dht.readTemperature();
+  f = dht.readTemperature(true);
+  if (isnan(hum) || isnan(temp) || isnan(f))
   {
-   char inChar = Serial.read();
-   if( inChar == '\r')
-   {
-    inputData = "";
-   }
-   else if(inChar == '\n')
-   {
-    data_complete = true;
-   }
-   else
-   {
-    inputData+=inChar;
-   }
+    Serial.println(F("Failed to read from DHT sensor!"));
+    return;
+  }
+  mqState = analogRead(mqPin);
+  lcd.clear();
+  lcd.print("HB:");
+  lcd.print(h);
+  lcd.print("bpm");
+  lcd.setCursor(9, 0);
+  lcd.print("CO:");
+  lcd.print(mqState);
+  lcd.setCursor(0, 1);
+  lcd.print("H:");
+  lcd.print(hum);
+  lcd.print("%");
+  lcd.setCursor(9, 1);
+  lcd.print("T:");
+  lcd.print(temp);
+
+  if (Serial.find('$'))
+  {
+    // Serial.println("Recieved $");
+    h = Serial.readStringUntil('&');
+    Serial.print("Heart rate:");
+    Serial.print(h);
+    Serial.println("bpm");
+  }
+  /*  if (Serial.find('&'))
+    {
+      // Serial.println("Recieved &");
+      o  = Serial.readStringUntil('@');
+      Serial.print("SpO2:");
+      Serial.print(o);
+      Serial.println("%");
+    }
+  */
+  Serial.print("Carbon Monoxide:");
+  Serial.println(mqState);
+  Serial.print("Humidity:");
+  Serial.println(hum);
+  Serial.print("Temperature:");
+  Serial.println(temp);
+
+  if ( h > "30")
+  {
+    updatedata();
+
   }
 
-  if(data_complete)
-  {
-   data_complete = false;
-   Serial.println(inputData);
-   demoParse();
-  }
-  //int a=vala.toInt();
- 
-  WiFiClient client = server.available(); // Check if a client has connected
- /* if (!client)
-  {
-   return;
-  }   */ 
-  String s = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n <!DOCTYPE html> <html> <head> <title>..........</title> <style>";
-  s += "a:link {background-color: RED;text-decoration: none;}";
-  s += "table, th, td </style> </head> <body> <h1  style=";
-  s += "font-size:250%;";
-  s += " ALIGN=CENTER> Dustbin data</h1>";
-  s += "<p ALIGN=CENTER style=""font-size:200%;""";
-  s += "> <b> Location -001</b></p> <table ALIGN=CENTER style=";
-  s += "width:10%";
-  s += "> <tr> <th>Level : </th>";
-  s += "<td ALIGN=CENTER >";
-  s += vala;
-  //s += "</td> </tr> <tr> <th>Tds Value : </th> <td ALIGN=CENTER >";
-  //s += valb;
-  //s += "</td> </tr> <tr>  <th>Water Level</th> <td ALIGN=CENTER >";
-  //s += valc;
-  //s += "</td></tr> <tr> <th>Water intake</th> <td ALIGN=CENTER >";
-  //s += vald;
-  s += "</td>  </tr> </table> ";
-  s += "</body> </html>";
-  client.print(s); // all the values are send to the webpage
   delay(100);
 }
-void demoParse() 
- {
-  Serial.println("parse");
-  Serial.println(vala);
-  Serial.println("=====");
-  JSONVar myObject = JSON.parse(inputData);    
-  if (JSON.typeof(myObject) == "undefined") 
+
+void updatedata()
+{
+  String command = "AT+CIPSTART=\"TCP\",\"";
+  command += IP;
+  command += "\",80";
+  Serial.begin(115200);
+  delay(200);
+  esp8266.begin(115200);
+  delay(200);
+  Serial.println(command);
+  delay(200);
+  esp8266.println(command);
+  delay(2000);
+  if (esp8266.find("Error")) {
+    return;
+  }
+
+
+
+  command = Api_key ;
+
+  command += "&field1=";
+  command += String(h);
+
+  command += "&field2=";
+  command += String(mqState);
+
+  command += "&field3=";
+  command += String(hum);
+
+  command += "&field4=";
+  command += String(temp);
+  /*
+          command += "&field5=";
+          command += String(t5);
+
+          command += "&field6=";
+          command += String(t6);
+
+
+
+          command += "&field7=";
+          command += String(t7);
+          command += "&field8=";
+          command += String(t8);
+
+
+
+            command += "&field9=";
+            command += String(t9);
+            command += "&field10=";
+            command += String(t10);
+
+  */
+  command += "\r\n\r\n\r\n\r\n\r\n\r\n";
+  Serial.print("AT+CIPSEND=");
+  esp8266.print("AT+CIPSEND=");
+  Serial.println(command.length());
+  esp8266.println(command.length());
+
+  if (esp8266.find(">")) {
+    delay(200);
+    Serial.print(command);
+    delay(200);
+    esp8266.print(command);
+    delay(200);
+    esp8266.println("AT+RST");
+    delay(200);
+    esp8266.println("AT");
+    delay(200);
+    esp8266.println("AT");
+    delay(200);
+
+  }
+
+  else {
+
+    Serial.println("AT+CIPCLOSE");
+    esp8266.println("AT+CIPCLOSE");
+    //Resend...
+    error = 1;
+  }
+}
+
+
+String send_command(String command, const int timeout, boolean debug)
+{
+  esp8266.begin(115200);
+  String response = "";
+  esp8266.print(command);
+  long int time = millis();
+  while ( (time + timeout) > millis())
   {
-   Serial.println("Parsing input failed!");
-   return;
+    while (esp8266.available())
+    {
+      char c = esp8266.read();
+      response += c;
+    }
   }
-  Serial.print("JSON.typeof(myObject) = ");
-  Serial.println(JSON.typeof(myObject)); // prints: object
-  // myObject.hasOwnProperty(key) checks if the object contains an entry for key
-  if (myObject.hasOwnProperty("anloga")) {
-  Serial.print("myObject[\"anloga\"] = ");
-  vala = (const char*) myObject["anloga"];//to get value in  vala
-  Serial.println(vala);
-  Serial.println((const char*) myObject["anloga"]);
- }
-  if (myObject.hasOwnProperty("anlogb")) {
-    Serial.print("myObject[\"anlogb\"] = ");
-    valb = (const char*) myObject["anlogb"];
-    Serial.println(valb); 
-    Serial.println((const char*) myObject["anlogb"]);
+  if (debug)
+  {
+    Serial.print(response);
   }
-  if (myObject.hasOwnProperty("anlogc")) {
-    Serial.print("myObject[\"anlogc\"] = ");
-    valc = (const char*) myObject["anlogc"];
-    Serial.println(valc); 
-    Serial.println((const char*) myObject["anlogc"]);
-  }
-  if (myObject.hasOwnProperty("anlogd")) {
-    Serial.print("myObject[\"anlogd\"] = ");
-    vald = (const char*) myObject["anlogd"];
-    Serial.println(vald); 
-    Serial.println((const char*) myObject["anlogd"]);
-  }
-  // JSON vars can be printed using print or println
-  Serial.print("myObject = ");
-  Serial.println(myObject);
-  Serial.println();
+  return response;
 }
 
  ```
   
-2) ### Code for Arduino UNO R3
+2) ### Code for GPS MOdule
 
 <br>
 
@@ -444,7 +557,7 @@ void loop()
 
 ## Conclusion
 
-While completing this project proposal, there are a few constraints that come up. First, the reading of sensors is less accurate, and need to be extra careful in handling the sensors. Second, notification to the mobile phone cannot be done because the cloud platform used is an open-source platform and cannot be used to send an alert or notification to the users. Development of the system needs to be done thoroughly to decrease the possibility of errors. However, added value has been added to this system to make the system more reliable. Normalization is being used to eliminate the outliers which can help to increase the accuracy of the distance reads by an ultrasonic sensor.
+The project aims to enhance worker safety through an IoT-enabled helmet equipped with various sensors and a web-based monitoring system. Nano 1, the sensing and data collection unit, features sensors for temperature, humidity, CO gas, and communicates with Nano 2 for heartbeat monitoring. Data is processed on Nano 1 and transmitted to ThingSpeak for real- time monitoring. In case of emergencies, Nano 3 triggers communication via SMS with GPS location. The system provides comprehensive monitoring of environmental conditions and worker well-being, promoting proactive responses to ensure safety.The integration of Nano units facilitates seamless data collection, processing, and communication, enabling real-time monitoring of worker safety. By leveraging IoT technology, supervisors can remotely monitor sensor readings through a user-friendly web interface. In emergencies, the system enables swift communication of the worker's location, enhancing response times. Overall, the project underscores the importance of IoT in promoting workplace safety and mitigating environmental hazards, ultimately safeguarding the well-being of workers.
   
 
 ## Contributing
@@ -463,10 +576,10 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 This Project is Created by:-
 
-  - [Pavankumar Hegde](https://github.com/hegdepavankumar) [Team Leader]
-  - [Sushil Kumar Sah](https://github.com/sushilsah)
-  - [Safina Fathima](https://github.com/safinafab)
-  - [Santhosh Reddy](https://github.com/)
+  - [Nikhil Kumar S](https://github.com/nikhils1611) [Team Leader]
+  - [Nuthan Kumar S](https://github.com/)
+  - [Pydi Vineel ](https://github.com/)
+  - [Sreenivaslu reddy](https://github.com/)
 
 
 
@@ -478,9 +591,9 @@ This Project is Created by:-
  <!-- Support Me --> 
 
  
-if you like what I do, maybe consider buying me a coffee 🥺👉👈
+<!-- if you like what I do, maybe consider buying me a coffee 🥺👉👈
 
-<a href="https://www.buymeacoffee.com/hegdepavankumar" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" width="150" ></a>
+<a href="https://www.buymeacoffee.com/hegdepavankumar" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" width="150" ></a> -->
 
 
 
