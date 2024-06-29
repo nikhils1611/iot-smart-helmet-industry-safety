@@ -1,0 +1,102 @@
+{% extends ('dataOwner/dataOwner_base.html') %}
+{% block title %} DataOwner | Home {% endblock %}
+{% block content %}
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
+<style>
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-start;
+        color: black;
+        margin-bottom: 50px;
+    }
+
+    .flex-item {
+        border-radius: 25px;
+        background: #73AD21;
+        padding: 10px;
+        width: 420px;
+        height: 280px;
+        margin-left: 10px;
+        margin-top: 50px;
+    }
+
+    .flex-item:nth-child(odd) {
+        margin-right: 10px;
+    }
+
+    .flex-item1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        color: black;
+    }
+
+    .val {
+        width: 100px;
+        padding: 10px;
+        margin-left: 0px;
+        background: wheat;
+        text-align: center;
+        border: 2px solid red;
+        padding: 10px;
+        border-radius: 50px;
+        font-size: 30px;
+    }
+</style>
+
+<div class="flex-container" style="margin-bottom:-10px;">
+    <div class="flex-item">
+        <h2>Temperature</h2>
+<!--        <iframe style="border:none;margin-right:30px;" width="380" height="210" src="https://thingspeak.com/channels/2294780/widgets/812974"></iframe>-->
+       <iframe width="380" height="210" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2494591/widgets/831830"></iframe>
+
+
+        {% for value in temp_data %}
+        <div class="val">{{ value }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="flex-item">
+        <h2>Heart beat</h2>
+<!--        <iframe width="380" height="210" style="border: none;margin-right:10px;" src="https://thingspeak.com/channels/2294780/widgets/812976"></iframe>-->
+        <iframe width="380" height="210" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2494591/widgets/831823"></iframe>
+
+
+        {% for value in hb_data %}
+        <div class="val">{{ value }}</div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="flex-container" style="margin-left:0px; margin-top:50px;">
+    <div class="flex-item">
+        <h2>Humidity</h2>
+<!--        <iframe width="380" height="210" style="border: 1px solid #cccccc; margin-right:30px;" src="https://thingspeak.com/channels/2294780/widgets/812977"></iframe>-->
+        <iframe width="380" height="210" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2494591/widgets/831829"></iframe>
+
+        {% for value in h_data %}
+        <div class="val">{{ value }}</div>
+        {% endfor %}
+    </div>
+<div class="flex-item">
+        <h2>CO</h2>
+<!--        <iframe width="380" height="210" style="border: none;margin-right:10px;" src="https://thingspeak.com/channels/2294780/widgets/812976"></iframe>-->
+    <iframe width="380" height="210" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2494591/widgets/831824"></iframe>
+
+    {% for value in co_data %}
+        <div class="val">{{ value }}</div>
+        {% endfor %}
+    </div>
+    <div>
+        <div style="margin-top:30px;margin-left:30px;">{{line_graph1 | safe}}</div>
+    </div>
+</div>
+
+
+
+{% endblock %}

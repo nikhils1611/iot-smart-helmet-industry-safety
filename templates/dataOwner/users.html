@@ -1,0 +1,43 @@
+{% extends ('dataOwner/dataOwner_base.html') %}
+{% block title %} DataOwner | Home {% endblock %}
+{% block content %}
+<style>
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        color: white;
+        margin-top:150px;
+
+    }
+
+    .flex-item {
+        width: 300%; /* Adjust the width as needed */
+        margin-right: 20%;
+        margin-top: 30%;
+        padding: 20%;
+        text-align: center;
+        border: 2px solid gray;
+
+    }
+</style>
+
+
+
+<div class="flex-container">
+    <div style="margin-right:250px;">
+        <div class="flex-item"><a href="/thinspeakdata"> <img src="static/background/15.png" width="50px">User 1</a></div>
+
+    </div>
+
+    <div style="margin-right:250px;">
+        <div class="flex-item"><img src="static/background/15.png" width="50px">User 2</div>
+    </div>
+
+    <div style="margin-right:250px;">
+
+        <div class="flex-item"><img src="static/background/15.png" width="50px">User 3</div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends ('dataOwner/dataOwner_base.html') %}
+{% block title %} DataOwner | Home {% endblock %}
+{% block content %}
+<style>
+    .img1{
+    height:80px;
+    position:relative;
+    margin:3%;
+    color:white;
+
+    animation: walking 11s linear infinite;
+    }
+    @keyframes walking {
+    0% {left:630px;}
+    50% {left:100px;}
+    100% {left:-740px;}
+    }
+
+</style>
+<img src="/static/background/helmet.jpg" width="550px" height="380px" >
+<h1 class="img1">IoT Based Smart Helmet For industry Safety</h1>
+{% endblock %}
+
